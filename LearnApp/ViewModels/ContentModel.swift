@@ -43,7 +43,7 @@ class ContentModel: ObservableObject {
             self.styleData = styledata;
         }
         catch {
-            print ("Couldn't parse style data")
+            print ("Couldn't parse style data:\(error)")
         }
     }
     

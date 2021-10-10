@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41F44B727128C2A00D4099E /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F44B627128C2A00D4099E /* HomeViewRow.swift */; };
 		F4F3F338270FA02700FD3EA9 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F337270FA02700FD3EA9 /* LearningApp.swift */; };
 		F4F3F33A270FA02700FD3EA9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F339270FA02700FD3EA9 /* HomeView.swift */; };
 		F4F3F33C270FA02900FD3EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F3F33B270FA02900FD3EA9 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F41F44B627128C2A00D4099E /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
 		F4F3F334270FA02700FD3EA9 /* LearnApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F3F337270FA02700FD3EA9 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		F4F3F339270FA02700FD3EA9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F4F3F339270FA02700FD3EA9 /* HomeView.swift */,
+				F41F44B627128C2A00D4099E /* HomeViewRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F3F33A270FA02700FD3EA9 /* HomeView.swift in Sources */,
+				F41F44B727128C2A00D4099E /* HomeViewRow.swift in Sources */,
 				F4F3F338270FA02700FD3EA9 /* LearningApp.swift in Sources */,
 				F4F3F34B270FA2BE00FD3EA9 /* ContentModel.swift in Sources */,
 				F4F3F353270FAA5700FD3EA9 /* Module.swift in Sources */,
@@ -343,7 +347,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,7 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
