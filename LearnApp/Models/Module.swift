@@ -22,11 +22,11 @@ struct Content : Decodable, Identifiable {
     var image:String
     var time:String
     var description:String
-    var lessons:[Lession]
+    var lessons:[Lesson]
     
 }
 
-struct Lession : Decodable, Identifiable {
+struct Lesson : Decodable, Identifiable {
     
     var id:Int
     var title:String

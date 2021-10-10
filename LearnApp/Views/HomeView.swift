@@ -21,12 +21,22 @@ struct HomeView: View {
                     LazyVStack {
                         ForEach(model.modules) {m_module in
                             VStack(spacing:20) {
-                                //Learning Card
-                                HomeViewRow(image: m_module.content.image,
-                                            title: "Learn \(m_module.category)",
-                                            description: m_module.content.description,
-                                            count: "\(m_module.content.lessons.count) Lessons",
-                                            time: m_module.content.time)
+                                
+                                NavigationLink(
+                                    destination:
+                                        LessonContentView()
+                                        .onAppear(perform: {
+                                            model.beginModule(m_module.id)
+                                        }),
+                                    label: {
+                                        //Learning Card
+                                        HomeViewRow(image: m_module.content.image,
+                                                    title: "Learn \(m_module.category)",
+                                                    description: m_module.content.description,
+                                                    count: "\(m_module.content.lessons.count) Lessons",
+                                                    time: m_module.content.time)
+                                        
+                                    })
                                 
                                 //Test Card
                                 HomeViewRow(image: m_module.test.image,
@@ -37,15 +47,18 @@ struct HomeView: View {
                             }
                         }
                     }
+                    .accentColor(.black)
+                    .padding()
                 }
                 
             }
             .navigationTitle("Get Started")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

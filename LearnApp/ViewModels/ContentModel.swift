@@ -9,7 +9,16 @@ import Foundation
 
 class ContentModel: ObservableObject {
     
+    // list of modules
     @Published var modules = [Module]()
+    
+    // current module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
+    
+    // current lesson
+    @Published var currentLesson: Lesson?
+    var currentLessonIndex = 0
     
     var styleData: Data?
     
@@ -18,6 +27,7 @@ class ContentModel: ObservableObject {
         getLocalData()
     }
     
+    // data methods
     func getLocalData() {
         
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -47,4 +57,59 @@ class ContentModel: ObservableObject {
         }
     }
     
+    func beginModule(_ moduleid:Int)
+    {
+        
+        // find index of this module id
+        for Index in 0..<modules.count {
+            
+            if modules[Index].id == moduleid {
+                
+                currentModuleIndex = Index
+                break
+
+            }
+        }
+        
+        // set the current module
+        currentModule = modules[currentModuleIndex]
+        
+    }
+    
+    func beginLesson(_ lessonIndex:Int)
+    {
+        if lessonIndex < currentModule!.content.lessons.count {
+            currentLessonIndex = lessonIndex
+        }
+        else
+        {
+            currentLessonIndex = 0
+        }
+        
+        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+    }
+    
+    func nextLesson()
+    {
+        currentLessonIndex += 1
+        
+        if currentLessonIndex < currentModule!.content.lessons.count {
+            
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        }
+        else
+        {
+            currentLessonIndex = 0
+            currentLesson = nil
+        }
+    }
+    
+    func hasNextLesson() -> Bool {
+        
+        if currentLessonIndex+1 < currentModule!.content.lessons.count {
+            return true
+        }
+        
+        return false
+    }
 }
