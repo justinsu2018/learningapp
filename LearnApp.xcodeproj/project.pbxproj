@@ -13,6 +13,8 @@
 		F4CA06972713275700CAD589 /* LessonContentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA06962713275700CAD589 /* LessonContentDetail.swift */; };
 		F4CA069A27132CA000CAD589 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CA069927132CA000CAD589 /* AVKit.framework */; };
 		F4CA069C27132DC600CAD589 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA069B27132DC600CAD589 /* Constants.swift */; };
+		F4D857D22714662A00AD0EB3 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D857D12714662A00AD0EB3 /* MapView.swift */; };
+		F4D857D4271469A600AD0EB3 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D857D3271469A600AD0EB3 /* CodeTextView.swift */; };
 		F4F3F338270FA02700FD3EA9 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F337270FA02700FD3EA9 /* LearningApp.swift */; };
 		F4F3F33A270FA02700FD3EA9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3F339270FA02700FD3EA9 /* HomeView.swift */; };
 		F4F3F33C270FA02900FD3EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F3F33B270FA02900FD3EA9 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		F4CA06962713275700CAD589 /* LessonContentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonContentDetail.swift; sourceTree = "<group>"; };
 		F4CA069927132CA000CAD589 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		F4CA069B27132DC600CAD589 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4D857D12714662A00AD0EB3 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F4D857D3271469A600AD0EB3 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		F4F3F334270FA02700FD3EA9 /* LearnApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F3F337270FA02700FD3EA9 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		F4F3F339270FA02700FD3EA9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				F4CA06922712F40B00CAD589 /* LessonContentView.swift */,
 				F4CA06942713187600CAD589 /* LessonContentViewRow.swift */,
 				F4CA06962713275700CAD589 /* LessonContentDetail.swift */,
+				F4D857D12714662A00AD0EB3 /* MapView.swift */,
+				F4D857D3271469A600AD0EB3 /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,8 +231,10 @@
 				F4F3F353270FAA5700FD3EA9 /* Module.swift in Sources */,
 				F4CA06952713187600CAD589 /* LessonContentViewRow.swift in Sources */,
 				F4CA06972713275700CAD589 /* LessonContentDetail.swift in Sources */,
+				F4D857D22714662A00AD0EB3 /* MapView.swift in Sources */,
 				F4CA06932712F40B00CAD589 /* LessonContentView.swift in Sources */,
 				F4CA069C27132DC600CAD589 /* Constants.swift in Sources */,
+				F4D857D4271469A600AD0EB3 /* CodeTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

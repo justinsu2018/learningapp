@@ -20,6 +20,9 @@ class ContentModel: ObservableObject {
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
     
+    // current lesson explanation
+    @Published var lessonExplanation = NSAttributedString()
+    
     var styleData: Data?
     
     init() {
@@ -87,6 +90,7 @@ class ContentModel: ObservableObject {
         }
         
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        lessonExplanation = addStyling(currentLesson!.explanation)
     }
     
     func nextLesson()
@@ -111,5 +115,35 @@ class ContentModel: ObservableObject {
         }
         
         return false
+    }
+    
+    private func addStyling(_ htmlString:String) -> NSAttributedString {
+        
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        if self.styleData != nil {
+        data.append(self.styleData!)
+        }
+        
+        data.append(Data(htmlString.utf8))
+        
+        do {
+            
+            let attributedString = try NSAttributedString(
+                data: data,
+                options: [.documentType:NSAttributedString.DocumentType.html],
+                documentAttributes: nil)
+                
+            resultString = attributedString
+            
+        }
+        catch
+        {
+            print("Couldn't turn html into attribute string.\(error)")
+        }
+        
+        return resultString
+        
     }
 }

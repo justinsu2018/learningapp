@@ -26,12 +26,13 @@ struct LessonContentDetail: View {
             }
             
             // description
+            CodeTextView()
             
             // next lesson
             if model.hasNextLesson() {
                 Button(action: {
                     
-                    model.hasNextLesson()
+                    model.nextLesson()
                     
                 }, label: {
                     
