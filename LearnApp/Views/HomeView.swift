@@ -28,6 +28,8 @@ struct HomeView: View {
                                         .onAppear(perform: {
                                             model.beginModule(m_module.id)
                                         }),
+                                    tag: m_module.id,
+                                    selection: $model.currentContentSelected,
                                     label: {
                                         //Learning Card
                                         HomeViewRow(image: m_module.content.image,

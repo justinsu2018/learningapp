@@ -38,13 +38,8 @@ struct LessonContentDetail: View {
                     
                     ZStack {
                         
-                        Rectangle()
+                        RetangleCard(color: .green)
                             .frame(height: 54)
-                            .foregroundColor(Color.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                            
-                        
                         
                         Text("Next Lesson \(model.currentModule!.content.lessons[model.currentLessonIndex+1].title)")
                             .foregroundColor(Color.white)
@@ -53,6 +48,30 @@ struct LessonContentDetail: View {
                 })
                     .padding()
             }
+            else {
+
+                Button(action: {
+                    
+                    // take the back to the homeview
+                    model.currentContentSelected = nil
+                    
+                }, label: {
+                    
+                    ZStack {
+                        
+                        RetangleCard(color: .red)
+                            .frame(height: 54)
+                        
+                        Text("Complete")
+                            .foregroundColor(Color.white)
+                            .bold()
+                    }
+                })
+                    .padding()
+                
+            }
+            
+            
         }
         .padding()
     }
