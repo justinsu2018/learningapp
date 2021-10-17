@@ -117,6 +117,25 @@ class ContentModel: ObservableObject {
         }
     }
     
+    func nextQuestion()
+    {
+        // advance question index
+        currentQuestionIndex += 1
+        
+        // check it's within the range of questions
+        if (currentQuestionIndex < currentModule!.test.questions.count)
+        {
+            // set the current question
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            lessonExplanation = addStyling(currentQuestion!.content)
+        }
+        else
+        {
+            currentQuestionIndex = 0
+            currentQuestion = nil
+        }
+    }
+    
     func beginTest(_ moduleId:Int) {
         
         // Set the current module

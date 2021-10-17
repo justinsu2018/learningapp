@@ -85,21 +85,36 @@ struct TestView: View {
                     .padding()
                 }
                 
-                // Button
+                // Submit Button
                 Button {
                     
-                    if selectedAnswerIndex == model.currentQuestion!.correctIndex {
-                        numCorrect += 1
+                    // check if answer has been submitted
+                    if submited == true {
+                        // answer has already been submitted, move to next question
+                        model.nextQuestion()
+                        
+                        // reset properties
+                        submited = false
+                        selectedAnswerIndex = nil
+                    }
+                    else
+                    {
+                        // submit the answer
+                        if selectedAnswerIndex == model.currentQuestion!.correctIndex {
+                            numCorrect += 1
+                        }
+                        
+                        submited = true
                     }
                     
-                    submited = true
+
                     
                 } label: {
                     ZStack {
                         RetangleCard(color: .green)
                             .frame(height: 48)
                         
-                        Text("Submit")
+                        Text(buttonText)
                             .bold()
                             .foregroundColor(.white)
                     }
@@ -124,6 +139,23 @@ struct TestView: View {
             ProgressView()
         }
         
+    }
+    
+    var buttonText:String {
+        
+        if submited == true {
+            
+            if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+               return "Finish"
+            }
+            else {
+                return "Next"
+            }
+            
+        }
+        else {
+            return "Submit"
+        }
     }
 }
 
