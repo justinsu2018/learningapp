@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F41F44B727128C2A00D4099E /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F44B627128C2A00D4099E /* HomeViewRow.swift */; };
+		F45C04D5271CC894004FD8EC /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C04D4271CC894004FD8EC /* TestResultView.swift */; };
 		F48854A9271725D4004F4B08 /* RetangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48854A8271725D4004F4B08 /* RetangleCard.swift */; };
 		F48854AB27172DA4004F4B08 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48854AA27172DA4004F4B08 /* TestView.swift */; };
 		F4CA06932712F40B00CAD589 /* LessonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA06922712F40B00CAD589 /* LessonContentView.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		F41F44B627128C2A00D4099E /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
+		F45C04D4271CC894004FD8EC /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		F48854A8271725D4004F4B08 /* RetangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetangleCard.swift; sourceTree = "<group>"; };
 		F48854AA27172DA4004F4B08 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F4CA06922712F40B00CAD589 /* LessonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F4D857D3271469A600AD0EB3 /* CodeTextView.swift */,
 				F48854A8271725D4004F4B08 /* RetangleCard.swift */,
 				F48854AA27172DA4004F4B08 /* TestView.swift */,
+				F45C04D4271CC894004FD8EC /* TestResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				F4CA069C27132DC600CAD589 /* Constants.swift in Sources */,
 				F48854AB27172DA4004F4B08 /* TestView.swift in Sources */,
 				F4D857D4271469A600AD0EB3 /* CodeTextView.swift in Sources */,
+				F45C04D5271CC894004FD8EC /* TestResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
