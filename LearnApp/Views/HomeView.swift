@@ -29,23 +29,37 @@ struct HomeView: View {
                                             model.beginModule(m_module.id)
                                         }),
                                     tag: m_module.id,
-                                    selection: $model.currentContentSelected,
-                                    label: {
+                                    selection: $model.currentContentSelected) {
                                         //Learning Card
                                         HomeViewRow(image: m_module.content.image,
                                                     title: "Learn \(m_module.category)",
                                                     description: m_module.content.description,
                                                     count: "\(m_module.content.lessons.count) Lessons",
                                                     time: m_module.content.time)
-                                        
-                                    })
+                                    }
+
+                                NavigationLink(
+                                    destination:
+                                        TestView()
+                                        .onAppear(perform: {
+                                            model.beginTest(m_module.id)
+                                        }),
+                                    tag: m_module.id,
+                                    selection: $model.currentTestSelected)
+                                {
+                                    //Test Card
+                                    HomeViewRow(image: m_module.test.image,
+                                                title: "\(m_module.category) Test",
+                                                description: m_module.test.description,
+                                                count: "\(m_module.test.questions.count) Lessons",
+                                                time: m_module.test.time)
+                                    
+                                }
                                 
-                                //Test Card
-                                HomeViewRow(image: m_module.test.image,
-                                            title: "Learn \(m_module.category)",
-                                            description: m_module.test.description,
-                                            count: "\(m_module.test.questions.count) Lessons",
-                                            time: m_module.test.time)
+                                NavigationLink(destination: EmptyView()) {
+                                    EmptyView()
+                                }
+                                
                             }
                         }
                     }

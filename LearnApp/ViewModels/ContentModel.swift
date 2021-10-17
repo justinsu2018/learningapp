@@ -16,6 +16,10 @@ class ContentModel: ObservableObject {
     @Published var currentModule: Module?
     var currentModuleIndex = 0
     
+    // current question
+    @Published var currentQuestion: Question?
+    var currentQuestionIndex = 0
+    
     // current lesson
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
@@ -25,6 +29,8 @@ class ContentModel: ObservableObject {
     
     // Current selcted content and test
     @Published var currentContentSelected: Int?
+    @Published var currentTestSelected:Int?
+
     
     var styleData: Data?
     
@@ -109,6 +115,24 @@ class ContentModel: ObservableObject {
             currentLessonIndex = 0
             currentLesson = nil
         }
+    }
+    
+    func beginTest(_ moduleId:Int) {
+        
+        // Set the current module
+        beginModule(moduleId)
+        
+        // Set the current question
+        currentQuestionIndex = 0
+        
+        // if there are questions set the current question value to test 1
+        if currentModule?.test.questions.count ?? 0 > 0 {
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            
+            //　set the question content as well
+            lessonExplanation = addStyling(currentQuestion!.content)
+        }
+        
     }
     
     func hasNextLesson() -> Bool {
