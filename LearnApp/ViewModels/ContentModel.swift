@@ -30,13 +30,17 @@ class ContentModel: ObservableObject {
     // Current selcted content and test
     @Published var currentContentSelected: Int?
     @Published var currentTestSelected:Int?
-
+    
     
     var styleData: Data?
     
     init() {
         
+        // parse local included json data
         getLocalData()
+        
+        // download remote json file and parse data
+        getRemoteData()
     }
     
     // data methods
@@ -69,6 +73,50 @@ class ContentModel: ObservableObject {
         }
     }
     
+    func getRemoteData() {
+        let urlString = "https://raw.githubusercontent.com/justinsu2018/learningapp-data/main/data2.json"
+        
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            
+            // couldn't create url
+            return
+        }
+        
+        let request = URLRequest(url: url!)
+        
+        // get the sesiion and kick of the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            // check if there is an error
+            guard error == nil else {
+                return
+            }
+            
+            //handle response
+            
+            do {
+                // create json decorder
+                let decorder = JSONDecoder()
+                
+                // decord
+                let module = try decorder.decode([Module].self, from: data!)
+                
+                self.modules += module
+            }
+            catch {
+                
+            }
+            
+        })
+        
+        // kick of datatask
+        dataTask.resume()
+    }
+    
     func beginModule(_ moduleid:Int)
     {
         
@@ -79,7 +127,7 @@ class ContentModel: ObservableObject {
                 
                 currentModuleIndex = Index
                 break
-
+                
             }
         }
         
@@ -169,7 +217,7 @@ class ContentModel: ObservableObject {
         var data = Data()
         
         if self.styleData != nil {
-        data.append(self.styleData!)
+            data.append(self.styleData!)
         }
         
         data.append(Data(htmlString.utf8))
@@ -180,7 +228,7 @@ class ContentModel: ObservableObject {
                 data: data,
                 options: [.documentType:NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
-                
+            
             resultString = attributedString
             
         }
