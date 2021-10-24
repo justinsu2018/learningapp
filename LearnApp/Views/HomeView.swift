@@ -20,7 +20,7 @@ struct HomeView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(model.modules) {m_module in
-                            VStack(spacing:20) {
+                            VStack(spacing:10) {
                                 
                                 NavigationLink(
                                     destination:
@@ -56,10 +56,6 @@ struct HomeView: View {
                                     
                                 }
                                 
-                                NavigationLink(destination: EmptyView()) {
-                                    EmptyView()
-                                }
-                                
                             }
                             .padding(.bottom, 5)
                         }
@@ -72,6 +68,18 @@ struct HomeView: View {
             .navigationTitle("Get Started")
         }
         .navigationViewStyle(.stack)
+        .onChange(of: model.currentContentSelected, perform: {changeValue in
+            if changeValue == nil {
+                model.currentModule = nil
+            }
+        })
+        /*
+        .onChange(of: model.currentTestSelected, perform: {changeValue in
+            if changeValue == nil {
+                model.currentModule = nil
+            }
+        })
+         */
     }
 }
 

@@ -14,6 +14,16 @@ struct TestView: View {
     @State var numCorrect = 0
     @State var submited = false
     
+    var testCount: Int {
+        if model.currentModule != nil  {
+            return model.currentModule!.test.questions.count
+        }
+        else
+        {
+            return 0
+        }
+    }
+    
     var body: some View {
         
         if model.currentQuestion != nil {
@@ -21,8 +31,11 @@ struct TestView: View {
             VStack(alignment: .leading) {
                 
                 // Question number
-                Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule!.test.questions.count ?? 0)")
-                    .padding(.leading, 5)
+                
+                
+                //Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule!.test.questions.count ?? 0)")
+                Text("Question \(model.currentQuestionIndex + 1) of \(testCount)")
+                .padding(.leading, 5)
                 
                 // Question
                 CodeTextView()
