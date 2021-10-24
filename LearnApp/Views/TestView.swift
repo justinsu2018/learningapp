@@ -13,6 +13,7 @@ struct TestView: View {
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submited = false
+    @State var showResult = false
     
     var testCount: Int {
         if model.currentModule != nil  {
@@ -26,7 +27,8 @@ struct TestView: View {
     
     var body: some View {
         
-        if model.currentQuestion != nil {
+        if model.currentQuestion != nil &&
+            showResult == false {
             
             VStack(alignment: .leading) {
                 
@@ -35,7 +37,7 @@ struct TestView: View {
                 
                 //Text("Question \(model.currentQuestionIndex + 1) of \(model.currentModule!.test.questions.count ?? 0)")
                 Text("Question \(model.currentQuestionIndex + 1) of \(testCount)")
-                .padding(.leading, 5)
+                    .padding(.leading, 5)
                 
                 // Question
                 CodeTextView()
@@ -103,12 +105,17 @@ struct TestView: View {
                     
                     // check if answer has been submitted
                     if submited == true {
-                        // answer has already been submitted, move to next question
-                        model.nextQuestion()
-                        
-                        // reset properties
-                        submited = false
-                        selectedAnswerIndex = nil
+                        if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
+                            showResult = true;
+                        }
+                        else {
+                            // answer has already been submitted, move to next question
+                            model.nextQuestion()
+                            
+                            // reset properties
+                            submited = false
+                            selectedAnswerIndex = nil
+                        }
                     }
                     else
                     {
@@ -120,7 +127,7 @@ struct TestView: View {
                         submited = true
                     }
                     
-
+                    
                     
                 } label: {
                     ZStack {
@@ -147,10 +154,15 @@ struct TestView: View {
             
             
         }
-        else
+        else if showResult == true
         {
             // if current question is nil, we show the result view
             TestResultView(numCorrect: numCorrect)
+        }
+        else
+        {
+            ProgressView()
+            
         }
         
     }
@@ -160,7 +172,7 @@ struct TestView: View {
         if submited == true {
             
             if model.currentQuestionIndex + 1 == model.currentModule!.test.questions.count {
-               return "Finish"
+                return "Finish"
             }
             else {
                 return "Next"
